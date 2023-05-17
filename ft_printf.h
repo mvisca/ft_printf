@@ -36,9 +36,19 @@ Behaviour:
 
 In the case of printf() it writes 'fotmat' = {char *format} in the stdoutput interpolating the refered vars delimited by the char '%' for its corresponding values. You've already use it so you know what it means!
 
+Format string
+-------------
+It has zero or more directives (%_ where _ is a the conversion specifier).
+
+
+
+
+
 The 'format' string controls how the 'subsequent_arguments' = {...} are processed to latter be displayed in the stdoutput.
 (YES! Those are the '...' in the agrs of the prototype of the function.)
 
+Subsequent arguments
+--------------------
 The 'subsequent_arguments' are implemented using variable number of arguments provided by the <stdarg.h> library. 
 [Ctrl] + [Click] to learn more >>
 https://man7.org/linux/man-pages/man3/stdarg.3.html
@@ -76,7 +86,7 @@ https://man7.org/linux/man-pages/man3/stdarg.3.html
 	EUREKA! The variable args can be understood as a linked list of void pointers. So you have to specify the type to access its values properly. If you don't understand linked lists yet, go through the LIBFT bonus section.
 
 	But...! How to know what is the type of each argument? This is the function of the previous arguments. The type of the arguments is not hardcoded in your program. It is know during execution time. So thake that into account.
-
+:w
 	In the case of 'printf()' the 'format' string has that information for you. So you have to read the format string in order to know how to read the variable arguments that the user of the function is providing.
 
 	f. Use the value of your argument. Sorte it, pass it to another function... U2Y!
@@ -93,5 +103,6 @@ SUMMARY OF VARIABLE ARGS IMPLEMENTATION
 2. { int function(int potatoes, ...); }
 3. { va_list my_variable_args; }
 4. { va_start(my_variable_args); }
-5. { int value = va_arg(my_variable_arg, potatoes); }
+5. { int value = va_arg(my_variable_arg, type); }
 6. { va_end(my_variable_args); }
+
