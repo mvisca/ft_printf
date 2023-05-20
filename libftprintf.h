@@ -1,9 +1,25 @@
 #ifndef FT_PRINTF
 # define FT_PRINTF
 
+# include "ft_libft/libft.h"
 # include <stdarg.h>
 
-int *ft_printf(const char *format, ...);
+int ft_printf(const char *format, ...);
+
+// Linked list management
+
+int	ft_addchar(t_list clst, const char *format);
+/*int	ft_addstring(t_list clst, va_list params, const char *format);
+int	ft_addhex(t_list clst, va_list params, const char *format);
+int	ft_addhexupper(t_list clst, va_list params, const char *format);
+int	ft_addint(t_list clst, va_list params, const char *format);
+int	ft_addnum(t_list clst, va_list params, const char *format);
+int	ft_addunsint(t_list clst, va_list params, const char *format);
+*/
+
+// Aux functions
+void	ft_del(void *cont);
+
 
 #endif
 
