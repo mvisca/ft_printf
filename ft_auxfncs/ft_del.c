@@ -1,7 +1,6 @@
-#include "ft_printd.h"
-#include "ft_libft/libft.h"
+#include "../libftprintf.h"
 
-void	ft_del(char *cont)
+void	ft_del(void *cont)
 {
 	ft_bzero((void *)cont, ft_strlen((char *)cont));
 }

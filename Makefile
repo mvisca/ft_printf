@@ -1,4 +1,3 @@
-
 # Compilation variables
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -7,15 +6,20 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = libftprintf.h
 
 # Paths
-LIBFT = ft_libft/
-AUX = ft_auxfncs/
+LIBFT_DIR = ft_libft/
+AUX_DIR = ft_auxfncs/
+OBJS_DIR = ft_objects/
+
+# Create directory if it doesn't exist
+$(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 
 # Souce Files
-SRCS_AUX = ft_addchar.c ft_del.c
-SRCS = ft_printf.c $(addprefix $(AUX), $(SRCS_AUX))
+SRCS_AUX = 		ft_del.c		ft_printf.c
 
 # Objects
-OBJS = $(SRCS:.c=.o)
+OBJS_AUX = $(addprefix $(OBJS_DIR), $(SRCS_AUX:.c=.o))
+# OBJS_MAIN = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
+OBJS = $(OBJS_AUX) #$(OBJS_MAIN)
 
 # Target file
 NAME = libftprintf.a
@@ -26,13 +30,26 @@ INC = -I. -I./ft_libft
 # Directives
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $@ $^
+$(NAME): $(OBJS) $(HEADER) | $(LIBFT_DIR)libft.a
+	cp $(LIBFT_DIR)libft.a $@
+	ar rcs $@ $(OBJS)
 
-%.o: %.c $(HADER) $(LIBFT)libft.a
+$(OBJS_DIR)%.o: $(AUX_DIR)%.c $(HEADER)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-$(LIBFT)libft.a:
-	cd $(LIBFT)
-	make
-	cd ..
+$(LIBFT_DIR)libft.a:
+	$(MAKE) -C $(LIBFT_DIR)
+
+clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
+	rm -f $(OBJS) $(HEADER).gch
+
+fclean: clean
+	rm -f $(NAME) $(LIBFT_DIR)libft.a 	
+
+view:
+	@echo $(OBJS)
+
+re: fclean all
+
+.PHONY: view clean fclean re
