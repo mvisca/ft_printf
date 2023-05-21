@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Include
-HEADER = libftprintf.h
+HEADER = ft_printf.h
 
 # Paths
 LIBFT_DIR = ft_libft/
