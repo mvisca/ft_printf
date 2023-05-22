@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:09:51 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/22 17:00:09 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:15:56 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int	ft_lstprint(t_list *s_clst)
 	printed = 0;
 	s_temp = s_clst;
 	write (1, "->", 2);
-	while (s_temp)
-	{
+		while (s_temp)
+		{
 		c = *(char *)(s_temp->content);
 		write (1, &c, 1);
 		s_temp = s_temp->next;
@@ -44,11 +44,11 @@ static int	ft_lstprint(t_list *s_clst)
 
 static int	ft_process(const char *format, va_list params, t_list **s_clst)
 {
-	int control;
-	int	c;
+	int 	control;
+	int		c;
 
-	c = va_arg(params, int);
-	printf("para que compile %% %d\n", c);
+//	c = va_arg(params, int);
+//	printf("para que compile %% %c\n", c);
 	control = 1;
 	while (control && *format)
 	{
@@ -57,7 +57,7 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 		else if (*format == '%' && *(format + 1) == '%')
 			control = ft_addchar(s_clst, ++format);
 		else if (*format == '%' && *(format + 1) == 'c')
-			control = ft_addcharva(s_clst, params, ++format);
+			control = ft_addcharva(s_clst, params);
 /*
 		else if (*format == '%' && *(format + 1) == 's')
 			control = ft_addstring(s_clst, params, ++format);
@@ -76,7 +76,7 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 */
 		else
 			control = 0;
-		format++;
+		format += control;
 	}
 	c = ft_lstprint(*s_clst);
 	printf("\nSALIDA DE PROCESSS %d\n", c);
@@ -90,7 +90,7 @@ int	ft_printf(const char *format, ...)
 	t_list	*s_clst;
 	int		control;
 	int		printed; // count of the chars printed
-	
+
 	va_start(params, format);
 	s_clst = NULL;
 	printed = 0;

@@ -6,19 +6,25 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:10:23 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/22 16:59:59 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:13:46 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_addcharva(t_list **s_clst, va_list params, const char *format)
+int	ft_addcharva(t_list **s_clst, va_list params)
 {
-	int	c;
-	int	control;
+	int		value;
+	char	c[2];
+	int 	control;
 
-	c = va_arg(params, int);
-	printf("esto desde addcharva> %c\n", c);
-	control = ft_addchar(s_clst, format);
+	control = 0;
+	value = va_arg(params, int);
+	c[0] = value;
+	c[1] = '\0';
+	printf("esto desde addcharva> >> %d <<\n", value);
+	control = ft_addchar(s_clst, c);
+	if (control)
+		control++;
 	return (control);
 }
