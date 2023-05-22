@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/22 16:18:12 by mvisca-g          #+#    #+#              #
+#    Updated: 2023/05/22 16:55:04 by mvisca-g         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Compilation variables
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -14,7 +26,8 @@ OBJS_DIR = ft_objects/
 $(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 
 # Souce Files
-SRCS_AUX = 		ft_del.c		ft_printf.c
+SRCS_AUX = 		ft_addchar.c		ft_addcharva.c \
+				ft_del.c		ft_printf.c
 
 # Objects
 OBJS_AUX = $(addprefix $(OBJS_DIR), $(SRCS_AUX:.c=.o))

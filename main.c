@@ -2,9 +2,11 @@
 
 int	main(void)
 {
-	int	ret;
+	int		ret;
+	char	c;
 
-	ret = ft_printf("Hola%%Mundo!\n");
+	c = 'A';
+	ret = ft_printf("Hola%%Mundo %c !\n", c);
 	printf("RET DEL MAIN: %d\n", ret);
 	return (0);
 }

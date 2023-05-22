@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_del.c                                           :+:      :+:    :+:   */
+/*   ft_addcharva.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 16:14:52 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/22 17:00:55 by mvisca-g         ###   ########.fr       */
+/*   Created: 2023/05/22 16:10:23 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/22 16:59:59 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_del(void *cont)
+int	ft_addcharva(t_list **s_clst, va_list params, const char *format)
 {
-	ft_bzero((void *)cont, ft_strlen((char *)cont));
-	free(cont);
+	int	c;
+	int	control;
+
+	c = va_arg(params, int);
+	printf("esto desde addcharva> %c\n", c);
+	control = ft_addchar(s_clst, format);
+	return (control);
 }

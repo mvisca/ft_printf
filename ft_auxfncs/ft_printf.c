@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 16:09:51 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/22 17:00:09 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 // c s p d i(0, 0b, 0x) u x X %
@@ -30,33 +42,6 @@ static int	ft_lstprint(t_list *s_clst)
 	return (printed);
 }
 
-static int	ft_addchar(t_list **s_clst, const char *format)
-{
-	int		control;
-	char	*content;
-	t_list	*new;
-
-	control = 0;
-	content = (char *) ft_calloc (sizeof(char), 2);
-	if (content)
-	{
-		content[0] = *format;
-		content[1] = '\0';
-		control = 1;
-		new = ft_lstnew(content);
-		if (!new)
-		{
-			ft_del(content);
-			free(content);
-			control = 0;
-			return (control);
-		}
-		ft_lstadd_back(s_clst, new);
-		ft_lstprint(*s_clst);
-	}
-	return (control);
-}
-
 static int	ft_process(const char *format, va_list params, t_list **s_clst)
 {
 	int control;
@@ -71,9 +56,9 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = ft_addchar(s_clst, format);
 		else if (*format == '%' && *(format + 1) == '%')
 			control = ft_addchar(s_clst, ++format);
-			/*
 		else if (*format == '%' && *(format + 1) == 'c')
 			control = ft_addcharva(s_clst, params, ++format);
+/*
 		else if (*format == '%' && *(format + 1) == 's')
 			control = ft_addstring(s_clst, params, ++format);
 		else if (*format == '%' && *(format + 1) == 'p')
@@ -87,7 +72,8 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 		else if (*format == '%' && *(format + 1) == 'x')
 			control = ft_addhex(s_clst, params, ++format);
 		else if (*format == '%' && *(format + 1) == 'X')
-			control = ft_addhexupper(s_clst, params, ++format);*/
+			control = ft_addhexupper(s_clst, params, ++format);
+*/
 		else
 			control = 0;
 		format++;
