@@ -1,9 +1,27 @@
 #ifndef FT_PRINTF
 # define FT_PRINTF
 
+# include "ft_libft/libft.h"
 # include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
 
-int *ft_printf(const char *format, ...);
+int ft_printf(const char *format, ...);
+
+// Linked list management
+
+/*
+int	ft_addchar(t_list **s_clst, const char *format);
+int	ft_addstring(t_list s_clst, va_list params, const char *format);
+int	ft_addhex(t_list s_clst, va_list params, const char *format);
+int	ft_addhexupper(t_list s_clst, va_list params, const char *format);
+int	ft_addint(t_list s_clst, va_list params, const char *format);
+int	ft_addnum(t_list s_clst, va_list params, const char *format);
+int	ft_addunsint(t_list s_clst, va_list params, const char *format);
+*/
+
+// Aux functions
+void	ft_del(void *cont);
 
 #endif
 
@@ -39,10 +57,6 @@ In the case of printf() it writes 'fotmat' = {char *format} in the stdoutput int
 Format string
 -------------
 It has zero or more directives (%_ where _ is a the conversion specifier).
-
-
-
-
 
 The 'format' string controls how the 'subsequent_arguments' = {...} are processed to latter be displayed in the stdoutput.
 (YES! Those are the '...' in the agrs of the prototype of the function.)
@@ -105,4 +119,7 @@ SUMMARY OF VARIABLE ARGS IMPLEMENTATION
 4. { va_start(my_variable_args); }
 5. { int value = va_arg(my_variable_arg, type); }
 6. { va_end(my_variable_args); }
+<<<<<<< HEAD
 
+=======
+*/
