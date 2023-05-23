@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-static void	ft_ulltoha(unsigned long long value, char aux[19], char *base) 
+static void	ft_ulltoha(unsigned long long value, char *aux, char *base) 
 {
 	int		i;
 	char	tmp [19];
@@ -35,12 +35,12 @@ static void	ft_ulltoha(unsigned long long value, char aux[19], char *base)
 int	ft_addhex(t_list **s_clst, va_list params, char x)
 {
 	unsigned long long	value;
-	char				aux[19];
+	char				*aux;
 	int					control;
 	int					i;
 
 	value = va_arg(params, unsigned long long);
-	ft_bzero(aux, 19);
+	aux = ft_calloc(sizeof(char), 19);
 	control = 1;
 	i = 0;
 	aux[0] = '0';
