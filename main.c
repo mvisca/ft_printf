@@ -20,5 +20,11 @@ int	main(void)
 	ret = ft_printf("NULL %s NULL", NULL);
 	printf("\nRET DEL MAIN: %d\n", ret);
 
+	ret = printf("or-%p", &str);
+	printf("\nRET DEL MAIN: %d\n", ret);
+
+	ret = ft_printf("ft-%p", &str);
+	printf("\nRET DEL MAIN: %d\n", ret);
+
 	return (0);
 }

@@ -6,21 +6,13 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:09:51 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/23 18:40:09 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:00:54 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 // c s p d i(0, 0b, 0x) u x X %
-
-// todas las funciones reciben el puntero en el char previo al que deben procesar
-	// addchar() adds a char to s_clst
-	// addint() takes char as param, d for int and i to check format
-	// addstring() adds string
-	// addhex() adds lowercase hex
-	// addhexupper() adds uppercase hex
-	// addunsint() adds uninsgend int
 
 static int	ft_lstprint(t_list *s_clst)
 {
@@ -42,10 +34,8 @@ static int	ft_lstprint(t_list *s_clst)
 
 static int	ft_process(const char *format, va_list params, t_list **s_clst)
 {
-	int 	control;
+	int	control;
 
-//	c = va_arg(params, int);
-//	printf("para que compile %% %c\n", c);
 	control = 1;
 	while (control && *format)
 	{
@@ -57,9 +47,9 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = ft_addcharva(s_clst, params);
 		else if (*format == '%' && *(format + 1) == 's')
 			control = ft_addstring(s_clst, params);
-/*
 	else if (*format == '%' && *(format + 1) == 'p')
-			control = ft_addhex(s_clst, params, ++format);
+			control = ft_addhex(s_clst, params, 'x');
+/*
 		else if (*format == '%' && *(format + 1) == 'd')
 			control = ft_addint(s_clst, params, ++format);
 		else if (*format == '%' && *(format + 1) == 'i')
@@ -80,11 +70,11 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	params; // params
-	t_list	**s_clst_ptr; // head of the linked list of chars
+	va_list	params;
+	t_list	**s_clst_ptr;
 	t_list	*s_clst;
 	int		control;
-	int		printed; // count of the chars printed
+	int		printed;
 
 	va_start(params, format);
 	s_clst = NULL;

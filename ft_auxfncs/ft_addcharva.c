@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:10:23 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/23 18:39:05 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:00:59 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_addcharva(t_list **s_clst, va_list params)
 {
 	int		value;
 	char	c[2];
-	int 	control;
+	int		control;
 
 	control = 0;
 	value = va_arg(params, int);
