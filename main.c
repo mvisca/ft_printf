@@ -7,11 +7,15 @@ int	main(void)
 	char	str[] = "holA munDo!";
 
 	c = 'A';
-	ret = ft_printf("Test char 'A' = > &c <!\n", c);
-	printf("RET DEL MAIN: %d\n", ret);
-	ret = ft_printf("Test doble percent > '%%' <\n", c);
-	printf("RET DEL MAIN: %d\n", ret);
-	ret = ft_printf("Test string 'holA munDo!' > %s <\n", str);
-	printf("RET DEL MAIN: %c\n", c);
+
+	ret = ft_printf("%c", c);
+	printf("\nRET DEL MAIN: %d\n", ret);
+	
+	ret = ft_printf("%%");
+	printf("\nRET DEL MAIN: %d\n", ret);
+	
+	ret = ft_printf("%s", str);
+	printf("\nRET DEL MAIN: %c\n", c);
+	
 	return (0);
 }

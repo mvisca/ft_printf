@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:09:51 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/22 20:15:56 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:40:09 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,19 @@ static int	ft_lstprint(t_list *s_clst)
 
 	printed = 0;
 	s_temp = s_clst;
-	write (1, "->", 2);
-		while (s_temp)
-		{
+	while (s_temp)
+	{
 		c = *(char *)(s_temp->content);
 		write (1, &c, 1);
 		s_temp = s_temp->next;
 		printed++;
 	}
-	printf("printed in func == %d\n", printed);
 	return (printed);
 }
 
 static int	ft_process(const char *format, va_list params, t_list **s_clst)
 {
 	int 	control;
-	int		c;
 
 //	c = va_arg(params, int);
 //	printf("para que compile %% %c\n", c);
@@ -78,8 +75,6 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = 0;
 		format += control;
 	}
-	c = ft_lstprint(*s_clst);
-	printf("\nSALIDA DE PROCESSS %d\n", c);
 	return (control);
 }
 
@@ -97,10 +92,8 @@ int	ft_printf(const char *format, ...)
 	s_clst_ptr = &s_clst;
 	control = ft_process(format, params, s_clst_ptr);
 	va_end(params);
-	printf("control  == %d\n", control);
 	if (control > 0)
 		printed = ft_lstprint(*s_clst_ptr);
-	printf("PRINTED %d\n", printed); 
 	ft_lstclear(s_clst_ptr, ft_del);
 	s_clst = NULL;
 	return (printed);
