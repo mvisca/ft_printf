@@ -44,16 +44,11 @@ int	ft_addhex(t_list **s_clst, va_list params, char x)
 	control = 1;
 	i = 0;
 	aux[0] = '0';
+aux[1] = x;
 	if (x == 'x')
-	{
 		ft_ulltoha(value, aux, "0123456789abcdef\0");
-		aux[1] = 'x';
-	}
 	else
-	{
 		ft_ulltoha(value, aux, "0123456789ABCDEF\0");
-		aux[1] = 'X';
-	}
 	while (control && aux[i])
 		control = ft_addchar(s_clst, &aux[i++]);
 	if (control)
