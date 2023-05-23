@@ -26,5 +26,10 @@ int	main(void)
 	ret = ft_printf("ft-%p", &str);
 	printf("\nRET DEL MAIN: %d\n", ret);
 
+	ret = ft_printf("%x", 31);
+	printf("\nRET DEL MAIN: %d\n", ret);
+	
+	ret = ft_printf("%X", 31);
+	printf("\nRET DEL MAIN: %d\n", ret);
 	return (0);
 }

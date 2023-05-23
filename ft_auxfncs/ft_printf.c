@@ -47,7 +47,7 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = ft_addcharva(s_clst, params);
 		else if (*format == '%' && *(format + 1) == 's')
 			control = ft_addstring(s_clst, params);
-	else if (*format == '%' && *(format + 1) == 'p')
+		else if (*format == '%' && *(format + 1) == 'p')
 			control = ft_addhex(s_clst, params, 'x');
 /*
 		else if (*format == '%' && *(format + 1) == 'd')
@@ -56,11 +56,11 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = ft_addnum(s_clst, params, ++format);
 		else if (*format == '%' && *(format + 1) == 'u')
 			control = ft_addunsint(s_clst, params, ++format);
-		else if (*format == '%' && *(format + 1) == 'x')
-			control = ft_addhex(s_clst, params, ++format);
-		else if (*format == '%' && *(format + 1) == 'X')
-			control = ft_addhexupper(s_clst, params, ++format);
 */
+		else if (*format == '%' && *(format + 1) == 'x')
+			control = ft_addhex(s_clst, params, 'x');
+		else if (*format == '%' && *(format + 1) == 'X')
+			control = ft_addhex(s_clst, params, 'X');
 		else
 			control = 0;
 		format += control;

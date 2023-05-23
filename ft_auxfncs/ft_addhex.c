@@ -12,45 +12,43 @@
 
 #include "../ft_printf.h"
 
-static void	ft_ulltoha(unsigned long long value, char *aux, char *base) 
+static void	ft_ulltoha(unsigned long long value, char **aux_ptr, char *base) 
 {
-	int		i;
-	char	tmp [19];
+	int	i;
 
-	i = 17;
-	while (value / 16)
+	i = 0;
+	while (value / 16 > 0)
 	{
-		tmp[i] = base[value % 16];
+		(*aux_ptr)[i++] = base[value % 16];
 		value = value / 16;
-		i--;
 	}
-	i++;
-	while (tmp[i])
-	{
-		aux[18 - i + 2] = tmp[i];
-		i++;
-	}
+	(*aux_ptr)[i++] = base[value % 16];
+	(*aux_ptr)[i++] = base[16];
+	(*aux_ptr)[i++] = '0';
+	(*aux_ptr)[i] = '\0';
 }
 
 int	ft_addhex(t_list **s_clst, va_list params, char x)
 {
 	unsigned long long	value;
+	char				**aux_ptr;
 	char				*aux;
 	int					control;
-	int					i;
+	int					len;
 
 	value = va_arg(params, unsigned long long);
 	aux = ft_calloc(sizeof(char), 19);
+	if (!aux)
+		return (0);
+	aux_ptr = &aux;
 	control = 1;
-	i = 0;
-	aux[0] = '0';
-aux[1] = x;
 	if (x == 'x')
-		ft_ulltoha(value, aux, "0123456789abcdef\0");
+		ft_ulltoha(value, aux_ptr, "0123456789abcdefx\0");
 	else
-		ft_ulltoha(value, aux, "0123456789ABCDEF\0");
-	while (control && aux[i])
-		control = ft_addchar(s_clst, &aux[i++]);
+		ft_ulltoha(value, aux_ptr, "0123456789ABCDEFX\0");
+	len = ft_strlen(aux);
+	while (control && len > 0)
+		control = ft_addchar(s_clst, &aux[--len]);
 	if (control)
 		control++;
 	return (control);
