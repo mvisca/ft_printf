@@ -24,8 +24,8 @@ int ft_printf(const char *format, ...);
 // Linked list management
 int	ft_addchar(t_list **s_clst, const char *format);
 int	ft_addcharva(t_list **s_clst, va_list params);
+int	ft_addstring(t_list **s_clst, va_list params);
 /*
-int	ft_addstring(t_list s_clst, va_list params, const char *format);
 int	ft_addhex(t_list s_clst, va_list params, const char *format);
 int	ft_addhexupper(t_list s_clst, va_list params, const char *format);
 int	ft_addint(t_list s_clst, va_list params, const char *format);

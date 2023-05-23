@@ -27,6 +27,7 @@ $(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 
 # Souce Files
 SRCS_AUX = 		ft_addchar.c		ft_addcharva.c \
+				ft_addstring.c \
 				ft_del.c		ft_printf.c
 
 # Objects

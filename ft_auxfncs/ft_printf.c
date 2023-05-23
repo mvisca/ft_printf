@@ -58,10 +58,10 @@ static int	ft_process(const char *format, va_list params, t_list **s_clst)
 			control = ft_addchar(s_clst, ++format);
 		else if (*format == '%' && *(format + 1) == 'c')
 			control = ft_addcharva(s_clst, params);
-/*
 		else if (*format == '%' && *(format + 1) == 's')
-			control = ft_addstring(s_clst, params, ++format);
-		else if (*format == '%' && *(format + 1) == 'p')
+			control = ft_addstring(s_clst, params);
+/*
+	else if (*format == '%' && *(format + 1) == 'p')
 			control = ft_addhex(s_clst, params, ++format);
 		else if (*format == '%' && *(format + 1) == 'd')
 			control = ft_addint(s_clst, params, ++format);
