@@ -15,7 +15,10 @@ int	main(void)
 	printf("\nRET DEL MAIN: %d\n", ret);
 	
 	ret = ft_printf("%s", str);
-	printf("\nRET DEL MAIN: %c\n", c);
-	
+	printf("\nRET DEL MAIN: %d\n", ret);
+
+	ret = ft_printf("NULL %s NULL", NULL);
+	printf("\nRET DEL MAIN: %d\n", ret);
+
 	return (0);
 }
