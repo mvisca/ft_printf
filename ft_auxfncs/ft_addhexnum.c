@@ -21,14 +21,11 @@ static void	ft_ulltoha(long long value, char **aux_ptr, char *base)
 	neg = 0;
 	if (value < 0)
 		neg = 1;
-	while (value / 16 > 0)
+	while (value > 0)
 	{
 		(*aux_ptr)[i++] = base[value % 16];
 		value = value / 16;
 	}
-	(*aux_ptr)[i++] = base[value % 16];
-	(*aux_ptr)[i++] = base[16];
-	(*aux_ptr)[i++] = '0';
 	if (neg)
 		(*aux_ptr)[i++] = '-';
 	(*aux_ptr)[i] = '\0';
@@ -43,7 +40,7 @@ int	ft_addhexnum(t_list **s_clst, va_list params, char x)
 	int			len;
 
 	value = va_arg(params, unsigned long long);
-	aux = malloc(sizeof(char) * 20);
+	aux = malloc(sizeof(char) * 18);
 
 	if (!aux)
 		return (0);
