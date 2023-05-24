@@ -43,7 +43,7 @@ int	ft_addhexnum(t_list **s_clst, va_list params, char x)
 	int			len;
 
 	value = va_arg(params, unsigned long long);
-	aux = malloc(sizeof(char), 20);
+	aux = malloc(sizeof(char) * 20);
 
 	if (!aux)
 		return (0);
