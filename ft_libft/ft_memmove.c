@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 19:55:11 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/04 14:24:20 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:58:06 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(void)
 	printf ("La de string.h\n");
 	
 //	printf ("ORIGINAL=%s\n", s2);
-	memmove(&s2[a], &s2[b], l);
+	m e m m o v e(&s2[a], &s2[b], l);
 
 	printf ("MODIFIED=%s\n", s2);
 	return (0);

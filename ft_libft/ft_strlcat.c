@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 19:42:07 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/04 13:58:34 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:07:37 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	main(int ac, char **av)
 	size_t		retorno;
 
 	system("clear");
-	retorno = ft_strlcat(s2, s1, atoi(av[2]));
+	retorno = ft_strlcat(s2, s1, a t o i(av[2]));
 
 	printf ("src: %s\n", s1);
 	printf ("dest ini: %s\n\n", s2);
 	
 	printf ("dest ft: %s \nretorno> %lu\n\n", s2, retorno);
 	
-	retorno = strlcat(s3, s1, atoi(av[2]));
+	retorno = s t r l c a t(s3, s1, a t o i(av[2]));
 	printf ("dest ori: %s \nretorno> %lu\n", s3, retorno);
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:04:28 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/08 17:02:34 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:08:08 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	  prep(char *s)
 	{
 		return (1);
 	}
-	ft_putnbr_fd(atoi(s), fd);
+	ft_putnbr_fd(a t o i(s), fd);
 	close(fd);
 	return (0);
 }

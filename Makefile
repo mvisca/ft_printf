@@ -6,7 +6,7 @@
 #    By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 16:18:12 by mvisca-g          #+#    #+#              #
-#    Updated: 2023/05/23 19:56:33 by mvisca-g         ###   ########.fr        #
+#    Updated: 2023/05/24 14:25:45 by mvisca-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 # Souce Files
 SRCS_AUX = 		ft_addchar.c		ft_addcharva.c \
 				ft_addstring.c 		ft_addhex.c \
-				ft_del.c		ft_printf.c
+				ft_del.c			ft_printf.c
 
 # Objects
 OBJS_AUX = $(addprefix $(OBJS_DIR), $(SRCS_AUX:.c=.o))

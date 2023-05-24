@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:48:34 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/05 13:10:09 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:05:52 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 	char d[22] = "hola\200hola";
 
 	printf ("%d\n", ft_memcmp(s, d, 22));
-	printf ("%d\n", memcmp(s, d, 22));
+	printf ("%d\n", m e m c m p(s, d, 22));
 	return (0);
 }
 */

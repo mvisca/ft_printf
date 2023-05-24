@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:10:01 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/03 20:41:24 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:06:39 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 {
 	char *res;
 
-	res = ft_itoa(atoi(av[1]));
+	res = ft_itoa(a t o i(av[1]));
 	printf ("Num=%s", res);
 
 	return (0);

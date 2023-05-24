@@ -6,23 +6,23 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:30:46 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/16 11:31:47 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:01:06 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free_all(char **split)
+static void	ft_free_all(char **spliter)
 {
 	int	i;
 
 	i = 0;
-	while (split[i])
+	while (spliter[i])
 	{
-		free(split[i]);
+		free(spliter[i]);
 		i++;
 	}
-	free(split);
+	free(spliter);
 }
 
 static int	ft_count(const char *s, char c)
@@ -41,7 +41,7 @@ static int	ft_count(const char *s, char c)
 	return (count);
 }
 
-static char	**ft_do_split(char **split, const char *s, char c)
+static char	**ft_do_split(char **spliter, const char *s, char c)
 {
 	int		i;
 	int		k;
@@ -55,30 +55,30 @@ static char	**ft_do_split(char **split, const char *s, char c)
 			start = i;
 		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
 		{
-			split[k] = ft_substr(s, start, i + 1 - start);
-			if (!split[k++])
+			spliter[k] = ft_substr(s, start, i + 1 - start);
+			if (!spliter[k++])
 			{
-				ft_free_all(split);
+				ft_free_all(spliter);
 				return (NULL);
 			}
 		}
 		i++;
 	}
-	split[k] = NULL;
-	return (split);
+	spliter[k] = NULL;
+	return (spliter);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**split;
+	char	**spliter;
 
 	if (!s)
 		return (NULL);
-	split = malloc (sizeof(char *) * (ft_count(s, c) + 1));
-	if (!split)
+	spliter = malloc (sizeof(char *) * (ft_count(s, c) + 1));
+	if (!spliter)
 		return (NULL);
-	split = ft_do_split(split, s, c);
-	if (!split)
+	spliter = ft_do_split(spliter, s, c);
+	if (!spliter)
 		return (NULL);
-	return (split);
+	return (spliter);
 }

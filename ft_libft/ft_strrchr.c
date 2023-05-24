@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 20:17:25 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/04/28 20:17:47 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:05:01 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int     main(void)
         char    c = '\0';
 
         printf ("%s\n", ft_strrchr(str, c));
-        printf ("%s\n", strrchr(str, c));
+        printf ("%s\n", s t r r c h r(str, c));
         return (0);
 }
 */

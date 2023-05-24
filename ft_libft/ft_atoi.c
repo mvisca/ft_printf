@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:46:36 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/06 18:09:34 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:07:13 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		printf ("MIO=%d\n", ft_atoi(av[1]));
-		printf ("ORI=%d\n", atoi(av[1]));
+		printf ("ORI=%d\n", a t o i(av[1]));
 	}
 	else
 	{
 		printf ("MIO=%d\n", ft_atoi(s));
-		printf ("ORI=%d\n", atoi(s));
+		printf ("ORI=%d\n", a t o i(s));
 	}
 	return (0);
 }
