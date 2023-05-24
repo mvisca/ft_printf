@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addhex.c                                        :+:      :+:    :+:   */
+/*   ft_addhexnum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 19:55:27 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:59 by mvisca-g         ###   ########.fr       */
+/*   Created: 2023/05/24 17:45:27 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/24 19:54:45 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	ft_ulltoha(unsigned long long value, char **aux_ptr, char *base) 
+static void	ft_ulltoha(long long value, char **aux_ptr, char *base) 
 {
 	int	i;
+	int	neg;
 
 	i = 0;
+	neg = 0;
+	if (value < 0)
+		neg = 1;
 	while (value / 16 > 0)
 	{
 		(*aux_ptr)[i++] = base[value % 16];
@@ -25,19 +29,22 @@ static void	ft_ulltoha(unsigned long long value, char **aux_ptr, char *base)
 	(*aux_ptr)[i++] = base[value % 16];
 	(*aux_ptr)[i++] = base[16];
 	(*aux_ptr)[i++] = '0';
+	if (neg)
+		(*aux_ptr)[i++] = '-';
 	(*aux_ptr)[i] = '\0';
 }
 
-int	ft_addhex(t_list **s_clst, va_list params, char x)
+int	ft_addhexnum(t_list **s_clst, va_list params, char x)
 {
-	unsigned long long	value;
-	char				**aux_ptr;
-	char				*aux;
-	int					control;
-	int					len;
+	long long	value;
+	char		**aux_ptr;
+	char		*aux;
+	int			control;
+	int			len;
 
 	value = va_arg(params, unsigned long long);
-	aux = ft_calloc(sizeof(char), 19);
+	aux = malloc(sizeof(char), 20);
+
 	if (!aux)
 		return (0);
 	aux_ptr = &aux;

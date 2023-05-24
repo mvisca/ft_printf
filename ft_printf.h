@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:50:26 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/23 20:43:17 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:53:16 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_addchar(t_list **s_clst, const char *format);
 int		ft_addcharva(t_list **s_clst, va_list params);
 int		ft_addstring(t_list **s_clst, va_list params);
 int		ft_addhex(t_list **s_clst, va_list params, char x);
+int		ft_addhexnum(t_list **s_clst, va_list params, char x);
 /*
 int	ft_addhexupper(t_list **s_clst, va_list params, const char *format);
 int	ft_addint(t_list **s_clst, va_list params, const char *format);

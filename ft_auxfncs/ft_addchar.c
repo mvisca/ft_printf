@@ -6,13 +6,13 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:37:58 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/23 21:00:56 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:24:38 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_addchar(t_list **s_clst, const char *format)
+int	ft_addchar(t_list **s_clst_ptr, const char *format)
 {
 	int		control;
 	char	*content;
@@ -29,11 +29,10 @@ int	ft_addchar(t_list **s_clst, const char *format)
 		if (!new)
 		{
 			ft_del(content);
-			free(content);
 			control = 0;
 			return (control);
 		}
-		ft_lstadd_back(s_clst, new);
+		ft_lstadd_back(s_clst_ptr, new);
 	}
 	return (control);
 }
