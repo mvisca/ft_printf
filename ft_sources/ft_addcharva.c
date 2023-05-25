@@ -1,21 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_addcharva.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 16:10:23 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/23 21:00:59 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-int	ft_addint(t_list **s_clst, va_list params)
+int	ft_addcharva(t_list **s_clst, va_list params)
 {
 	int		value;
-	int		value_copy;
-	int		len;
+	char	c[2];
 	int		control;
-	char	*num;
-	
+
 	control = 0;
 	value = va_arg(params, int);
-	value_copy = value;
-	len = 0;
-	while (value_copy / 10)
-		len++;
-	num = ft_strdup(ft_itoa(value));
-	control = ft_addchar(s_clst, num);
+	c[0] = value;
+	c[1] = '\0';
+	control = ft_addchar(s_clst, c);
 	if (control)
 		control++;
 	return (control);
