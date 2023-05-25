@@ -3,16 +3,17 @@
 int	main(void)
 {
 	int		ret;
-	char	c = 'A';
+//	char	c = 'A';
 	char	str[] = "holA munDo!";
-	char		*strptr = NULL;
+	char	*strptr = NULL;
 
+/*
 	ft_printf("\n == TEST '%%c' ==\n");
 	ret = ft_printf("FT: %c", c);
 	printf("\nRET: %d\n", ret);
 	ret = printf("OR: %c", c);
 	printf("\nRET: %d\n", ret);
-	
+*/	
 	ft_printf("\n == TEST '%%%%' ==\n");
 	ret = ft_printf("FT: %%");
 	printf("\nRET: %d\n", ret);
@@ -65,6 +66,18 @@ int	main(void)
 	ret = ft_printf("FT: %X", -3456);  // negnum
 	printf("\nRET: %d\n", ret);
 	ret = printf("OR: %X", -3456);  // negnum
+	printf("\nRET: %d\n", ret);
+	
+	ft_printf("\n == TEST '%%d' > 0 ==\n");
+	ret = ft_printf("FT: %d", 3456);
+	printf("\nRET: %d\n", ret);
+	ret = printf("OR: %d", 3456);
+	printf("\nRET: %d\n", ret);
+	
+	ft_printf("\n == TEST '%%d' < 0 ==\n");
+	ret = ft_printf("FT: %d", -3456);
+	printf("\nRET: %d\n", ret);
+	ret = printf("OR: %d", -3456);
 	printf("\nRET: %d\n", ret);
 	
 	ft_printf("\n == TEST CORNER FT %%%%x ==\n");

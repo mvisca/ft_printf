@@ -15,19 +15,13 @@
 static void	ft_ulltoha(long long value, char **aux_ptr, char *base) 
 {
 	int	i;
-	int	neg;
 
 	i = 0;
-	neg = 0;
-	if (value < 0)
-		neg = 1;
 	while (value > 0)
 	{
 		(*aux_ptr)[i++] = base[value % 16];
 		value = value / 16;
 	}
-	if (neg)
-		(*aux_ptr)[i++] = '-';
 	(*aux_ptr)[i] = '\0';
 }
 

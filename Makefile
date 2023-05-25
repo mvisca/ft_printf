@@ -19,7 +19,7 @@ HEADER = ft_printf.h
 
 # Paths
 LIBFT_DIR = ft_libft/
-AUX_DIR = ft_auxfncs/
+AUX_DIR = ft_sources/
 OBJS_DIR = ft_objects/
 
 # Create directory if it doesn't exist
@@ -28,6 +28,7 @@ $(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 # Souce Files
 SRCS_AUX = 		ft_addchar.c		ft_addcharva.c \
 				ft_addstring.c 		ft_addhex.c		ft_addhexnum.c \
+				ft_addint.c			ft_addunsint.c \
 				ft_del.c			ft_printf.c
 
 # Objects

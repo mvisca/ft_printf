@@ -29,12 +29,8 @@ int		ft_addcharva(t_list **s_clst, va_list params);
 int		ft_addstring(t_list **s_clst, va_list params);
 int		ft_addhex(t_list **s_clst, va_list params, char x);
 int		ft_addhexnum(t_list **s_clst, va_list params, char x);
-/*
-int	ft_addhexupper(t_list **s_clst, va_list params, const char *format);
-int	ft_addint(t_list **s_clst, va_list params, const char *format);
-int	ft_addnum(t_list **s_clst, va_list params, const char *format);
-int	ft_addunsint(t_list **s_clst, va_list params, const char *format);
-*/
+int		ft_addint(t_list **s_clst, va_list params);
+int		ft_addunsint(t_list **s_clst, va_list params);
 
 // Aux functions
 void	ft_del(void *cont);
