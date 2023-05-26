@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:55:27 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:59 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:48:21 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ int	ft_addhex(t_list **s_clst, va_list params, char x)
 	int					len;
 
 	value = va_arg(params, unsigned long long);
+	if (value == 0)
+	{
+		ft_addchar(s_clst, "0\0");
+		ft_addchar(s_clst, "x\0");
+		ft_addchar(s_clst, "0\0");
+		return (2);
+	}
 	aux = ft_calloc(sizeof(char), 19);
 	if (!aux)
 		return (0);
