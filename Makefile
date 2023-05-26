@@ -19,22 +19,18 @@ HEADER = ft_printf.h
 
 # Paths
 LIBFT_DIR = ft_libft/
-AUX_DIR = ft_sources/
+SRCS_DIR = ft_sources/
 OBJS_DIR = ft_objects/
 
 # Create directory if it doesn't exist
 $(shell mkdir -p $(OBJS_DIR) $(OBJS_DIR)$(AUX_DIR))
 
 # Souce Files
-SRCS_AUX = 		ft_addchar.c		ft_addcharva.c \
-				ft_addstring.c 		ft_addhex.c		ft_addhexnum.c \
-				ft_addint.c			ft_addunsint.c \
-				ft_del.c			ft_printf.c
+SRCS =	ft_addchar.c ft_addcharva.c ft_addstring.c ft_addhex.c ft_addhexnum.c \
+		ft_addint.c ft_addunsint.c ft_del.c ft_printf.c
 
 # Objects
-OBJS_AUX = $(addprefix $(OBJS_DIR), $(SRCS_AUX:.c=.o))
-# OBJS_MAIN = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
-OBJS = $(OBJS_AUX) #$(OBJS_MAIN)
+OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
 # Target file
 NAME = libftprintf.a
@@ -49,7 +45,7 @@ $(NAME): $(OBJS) $(HEADER) | $(LIBFT_DIR)libft.a
 	cp $(LIBFT_DIR)libft.a $@
 	ar rcs $@ $(OBJS)
 
-$(OBJS_DIR)%.o: $(AUX_DIR)%.c $(HEADER)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(LIBFT_DIR)libft.a:
@@ -57,13 +53,9 @@ $(LIBFT_DIR)libft.a:
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJS) $(HEADER).gch
 
 fclean: clean
 	rm -f $(NAME) $(LIBFT_DIR)libft.a 	
-
-view:
-	@echo $(OBJS)
 
 re: fclean all
 

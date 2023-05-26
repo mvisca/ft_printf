@@ -22,6 +22,8 @@ static void	ft_ulltoha(unsigned long long value, char **aux_ptr, char *base)
 		(*aux_ptr)[i++] = base[value % 16];
 		value = value / 16;
 	}
+	(*aux_ptr)[i++] = 'x';
+	(*aux_ptr)[i++] = '0';
 	(*aux_ptr)[i] = '\0';
 }
 
