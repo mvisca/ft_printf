@@ -7,18 +7,23 @@ static int	ft_process_ultoa(unsigned long value, char *base)
 	unsigned long	temp;
 	char			*num;
 
-	num = ft_calloc(1, 25);
+	num = ft_calloc(sizeof(char), 25);
 	if (!num)
 		return (-1);
-	len = 0;
+	len = 1;
 	temp = value;
 	while (temp / 16)
+	{
+		temp /= 16;
 		len++;
+	}
 	while (value / 16)
 	{
 		num[len - 1] = base[value % 16];
+		value /= 16;
 		len--;
 	}
+	num[len - 1] = base[value % 16];
 	control = write (1, num, ft_strlen(num));
 	free(num);
 	return (control);
@@ -32,7 +37,10 @@ static int ft_ultoa(unsigned long value, char mode)
 	printed = 0;
 	if (mode == 'p')
 	{
-		control = write (1, "0x", 2);	
+		if (!value)
+			control = write (1, "(nil)", 5);
+		else
+			control = write (1, "0x", 2);	
 		if (control == -1)
 			return (control);
 		printed += control;

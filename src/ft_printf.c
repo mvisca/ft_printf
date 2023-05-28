@@ -16,17 +16,14 @@ static int	ft_process(va_list params, const char *format, int *i)
 		control = ft_putint(params, i);
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'i'))
 		control = ft_putint(params, i);
-/*
-	else if ((format[*i] == '%') && (format[(*i) + 1] == 'u'))
-		control = ft_addunsint(s_clst_ptr, params);
-*/
+/*	else if ((format[*i] == '%') && (format[(*i) + 1] == 'u'))
+		control = ft_addunsint(s_clst_ptr, params); */
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'p'))
 		control = ft_putptr(params, i, 'p');
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'x'))
 		control = ft_puthex(params, i, 'x');
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'X'))
 		control = ft_puthex(params, i, 'X');
-	(*i) = (*i) + 1;
 	return (control);
 }
 
@@ -46,6 +43,7 @@ int	ft_printf(const char *format, ...)
 		control = ft_process(params, format, &index);
 		if (control == -1)
 			return (-1);
+		index++;
 		printed += control;
 	}
 	va_end(params);
