@@ -1,21 +1,6 @@
 #include "ft_printf.h"
 
 
-
-// STRING
-	ft_printf(RED"\n == TEST '%%s' ==\n"NC);
-	ret = ft_printf("FT: %s", str);
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: %s", str);
-	printf("\nRet: %d\n", ret);
-
-// NULL STRING
-	ft_printf(RED"\n == TEST '%%s NULL' ==\n"NC);
-	ret = ft_printf("FT: NULL %s NULL", NULL);
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: NULL %s NULL", strptr);
-	printf("\nRet: %d\n", ret);
-
 // POINTER ADDRESS
 	ft_printf(BLUE"\n == TEST '%%p' ==\n"NC);
 	ret = ft_printf("FT: %p", &str);
@@ -56,32 +41,6 @@
 	ret = printf("OR: %X", -3456);  // negnum
 	printf("\nRet: %d\n", ret);
 	
-// INT
-	ft_printf(GREEN"\n == TEST '%%d' < 0 ==\n"NC);
-	ret = ft_printf("FT: %d", -3456);  // negnum
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: %d", -3456);  // negnum
-	printf("\nRet: %d\n", ret);
-	
-	ft_printf(GREEN"\n == TEST '%%d' > 0 ==\n"NC);
-	ret = ft_printf("FT: %d", 3456);
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: %d", 3456);
-	printf("\nRet: %d\n", ret);
-	
-// INT
-	ft_printf(GREEN"\n == TEST '%%i' > 0 ==\n"NC);
-	ret = ft_printf("FT: %d", 3456);
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: %i", 3456);
-	printf("\nRet: %d\n", ret);
-
-	ft_printf(GREEN"\n == TEST '%%i' < 0 ==\n"NC);
-	ret = ft_printf("FT: %i", -47384);
-	printf("\nRet: %d\n", ret);
-	ret = printf("OR: %i", -47384);
-	printf("\nRet: %d\n", ret);
-
 // UNSINT
 	ft_printf(CYAN"\n == TEST '%%u' > 0 ==\n"NC);
 	ret = ft_printf("FT: %u", 1345334511);
