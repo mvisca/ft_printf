@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 16:41:16 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/29 19:31:29 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-int ft_putchar(va_list params, int *i)
+int	ft_putchar(va_list params, int *i)
 {
-	int     control;
+	int		control;
 	int		value;
 	char	c;
 

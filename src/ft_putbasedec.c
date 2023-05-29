@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putbasedec.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 19:15:28 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/29 20:28:31 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 char	*ft_utoa(unsigned int n)
 {
 	int				len;
-	long int		ncpy;
+	unsigned long	ncpy;
 	char			*res;
 
 	len = 0;
@@ -31,30 +43,21 @@ int	ft_putunsint(va_list params, int *i)
 	char			*num;
 
 	value = va_arg(params, unsigned int);
-	if (value == 0)
-	{
+	if (!value)
 		num = ft_strdup("0");
-		if (!num)
-			return (NULL);
-		return (num);
-	} 
-	num = ft_utoa(value);
+	else
+		num = ft_utoa(value);
 	if (!num)
 		return (-1);
 	control = write (1, num, ft_strlen(num));
-	if (control == -1)
-	{
-		free(num);
-		return (-1);
-	}
 	*i = *i + 1;
 	free(num);
 	return (control);
 }
 
-int ft_putint(va_list params, int *i)
+int	ft_putint(va_list params, int *i)
 {
-	int     control;
+	int		control;
 	int		value;
 	char	*num;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 18:11:54 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/29 19:50:21 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 static int	ft_process(va_list params, const char *format, int *i)
@@ -42,8 +54,6 @@ int	ft_printf(const char *format, ...)
 	while (control != -1 && format[index])
 	{
 		control = ft_process(params, format, &index);
-		if (control == -1)
-			return (-1);
 		index++;
 		printed += control;
 	}

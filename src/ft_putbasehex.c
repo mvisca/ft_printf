@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putbasehex.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 16:54:49 by mvisca-g          #+#    #+#             */
+/*   Updated: 2023/05/29 20:17:43 by mvisca-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-static int	ft_process_ultoa(unsigned long value, char *base)
+static int	ft_process_ultohexa(unsigned long value, char *base)
 {
 	int				control;
 	int				len;
@@ -29,7 +41,7 @@ static int	ft_process_ultoa(unsigned long value, char *base)
 	return (control);
 }
 
-static int ft_ultoa(unsigned long value, char mode)
+static int	ft_ultohexa(unsigned long value, char mode)
 {
 	int		control;
 	int		printed;
@@ -37,39 +49,39 @@ static int ft_ultoa(unsigned long value, char mode)
 	printed = 0;
 	if (mode == 'p')
 	{
-		control = write (1, "0x", 2);	
+		control = write (1, "0x", 2);
 		if (control == -1)
 			return (control);
 		printed += control;
 	}
 	if (mode == 'p' || mode == 'x')
-		control = ft_process_ultoa(value, "0123456789abcdef");
+		control = ft_process_ultohexa(value, "0123456789abcdef");
 	else
-		control = ft_process_ultoa(value, "0123456789ABCDEF");
+		control = ft_process_ultohexa(value, "0123456789ABCDEF");
 	if (control == -1)
 		return (control);
 	printed += control;
 	return (printed);
 }
 
-int ft_putptr(va_list params, int *i, char mode)
+int	ft_putptr(va_list params, int *i, char mode)
 {
 	int		control;
 	void	*value;
 
 	*i = *i + 1;
 	value = va_arg(params, void *);
-	control = ft_ultoa((unsigned long)value, mode);
+	control = ft_ultohexa((unsigned long)value, mode);
 	return (control);
 }
 
-int ft_puthex(va_list params, int *i, char mode)
+int	ft_puthex(va_list params, int *i, char mode)
 {
 	int				control;
 	unsigned int	value;
-	
+
 	*i = *i + 1;
 	value = va_arg(params, unsigned int);
-	control = ft_ultoa((unsigned long)value, mode);
+	control = ft_ultohexa((unsigned long)value, mode);
 	return (control);
 }

@@ -24,7 +24,7 @@ int	main(void)
 	printf("\nRet: %d\n", ret);
 	
 // CHAR
-	ft_printf(RED"\n == TEST '%%c' ==\n"NC);
+	ft_printf(BLUE"\n == TEST '%%c' ==\n"NC);
 	ret = ft_printf("FT: %c", c);
 	printf("\nRet: %d\n", ret);
 	ret = printf("OR: %c", c);
@@ -77,6 +77,12 @@ int	main(void)
 	ret = printf("OR: %i", -47384);
 	printf("\nRet: %d\n", ret);
 
+	ft_printf(GREEN"\n == TEST '%%i' == 0 ==\n"NC);
+	ret = ft_printf("FT: %i", 0);
+	printf("\nRet: %d\n", ret);
+	ret = printf("OR: %i", 0);
+	printf("\nRet: %d\n", ret);
+
 // HEX
 	ft_printf(YELLOW"\n == TEST '%%x' > 0 ==\n"NC);
 	ret = ft_printf("FT: %x", 3456);
@@ -104,13 +110,13 @@ int	main(void)
 	printf("\nRet: %d\n", ret);
 
 // POINTER ADDRESS
-	ft_printf(BLUE"\n == TEST '%%p' ==\n"NC);
+	ft_printf(MAGENTA"\n == TEST '%%p' ==\n"NC);
 	ret = ft_printf("FT: %p", &str);
 	printf("\nRet: %d\n", ret);
 	ret = printf("OR: %p", &str);
 	printf("\nRet: %d\n", ret);
 
-	ft_printf(BLUE"\n == TEST '%%p' ==\n"NC);
+	ft_printf(MAGENTA"\n == TEST '%%p' ==\n"NC);
 	ret = ft_printf("FT: %p %p", strptr, strptr);
 	printf("\nRet: %d\n", ret);
 	ret = printf("OR: %p %p", strptr, strptr);
@@ -123,7 +129,7 @@ int	main(void)
 	ret = printf("OR: %u", 1345334511);
 	printf("\nRet: %d\n", ret);
 
-	ft_printf(CYAN"\n == TEST '%%i' < 0 ==\n"NC);
+	ft_printf(CYAN"\n == TEST '%%u' == 0 ==\n"NC);
 	ret = ft_printf("FT: %i", 0);
 	printf("\nRet: %d\n", ret);
 	ret = printf("OR: %i", 0);

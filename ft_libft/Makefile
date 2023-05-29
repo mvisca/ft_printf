@@ -53,7 +53,7 @@ OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 
 # Includes
-INC = -I.
+#INC = -I.
 
 # Targets e instrucciones
 all: $(NAME)
@@ -61,11 +61,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "\r$(BLUE)Linking... $(NC)$^"
 	@ar rcs $@ $^
-	@echo "$(YELLOW)Library libfh.h ready! $(NC)"
+	@echo "$(YELLOW)Library libfh.a ready! $(NC)"
 
 %.o: %.c $(HEADER) 
 	@echo "$(GREEN)Compiling... $(NC)$< -> $@"
-	@$(CC) $(FLAGS) $(INC) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@ #$(INC)
 
 clean:
 	@echo "$(RED)Delete *.o >> 🗑️ $(NC)"
