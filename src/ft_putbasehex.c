@@ -37,10 +37,7 @@ static int ft_ultoa(unsigned long value, char mode)
 	printed = 0;
 	if (mode == 'p')
 	{
-		if (!value)
-			control = write (1, "(nil)", 5);
-		else
-			control = write (1, "0x", 2);	
+		control = write (1, "0x", 2);	
 		if (control == -1)
 			return (control);
 		printed += control;

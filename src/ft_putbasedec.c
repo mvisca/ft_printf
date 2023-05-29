@@ -10,5 +10,6 @@ int ft_putint(va_list params, int *i)
 	num = ft_itoa(value);
 	control = write (1, num, ft_strlen(num));
 	*i = *i + 1;
+	free(num);
 	return (control);
 }
