@@ -4,6 +4,7 @@ static int	ft_process(va_list params, const char *format, int *i)
 {
 	int	control;
 
+	control = -1;
 	if (format[(*i)] != '%')
 		control = write (1, &format[(*i)], 1);
 	else if ((format[*i] == '%') && (format[(*i) + 1] == '%'))

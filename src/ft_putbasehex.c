@@ -45,7 +45,7 @@ static int ft_ultoa(unsigned long value, char mode)
 			return (control);
 		printed += control;
 	}
-	if (mode == 'p' || 'x')
+	if (mode == 'p' || mode == 'x')
 		control = ft_process_ultoa(value, "0123456789abcdef");
 	else
 		control = ft_process_ultoa(value, "0123456789ABCDEF");
