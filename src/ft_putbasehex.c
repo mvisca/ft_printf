@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:54:49 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/29 20:17:43 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:36:42 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	ft_putptr(va_list params, int *i, char mode)
 	int		control;
 	void	*value;
 
-	*i = *i + 1;
 	value = va_arg(params, void *);
 	control = ft_ultohexa((unsigned long)value, mode);
+	(*i)++;
 	return (control);
 }
 
@@ -80,8 +80,8 @@ int	ft_puthex(va_list params, int *i, char mode)
 	int				control;
 	unsigned int	value;
 
-	*i = *i + 1;
 	value = va_arg(params, unsigned int);
 	control = ft_ultohexa((unsigned long)value, mode);
+	(*i)++;
 	return (control);
 }
