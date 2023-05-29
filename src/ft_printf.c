@@ -17,8 +17,8 @@ static int	ft_process(va_list params, const char *format, int *i)
 		control = ft_putint(params, i);
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'i'))
 		control = ft_putint(params, i);
-/*	else if ((format[*i] == '%') && (format[(*i) + 1] == 'u'))
-		control = ft_addunsint(s_clst_ptr, params); */
+	else if ((format[*i] == '%') && (format[(*i) + 1] == 'u'))
+		control = ft_putunsint(params, i);
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'p'))
 		control = ft_putptr(params, i, 'p');
 	else if ((format[*i] == '%') && (format[(*i) + 1] == 'x'))

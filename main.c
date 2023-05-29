@@ -110,10 +110,23 @@ int	main(void)
 	ret = printf("OR: %p", &str);
 	printf("\nRet: %d\n", ret);
 
-	ft_printf(YELLOW"\n == TEST '%%p' ==\n"NC);
+	ft_printf(BLUE"\n == TEST '%%p' ==\n"NC);
 	ret = ft_printf("FT: %p %p", strptr, strptr);
 	printf("\nRet: %d\n", ret);
 	ret = printf("OR: %p %p", strptr, strptr);
+	printf("\nRet: %d\n", ret);
+
+// UNSINT
+	ft_printf(CYAN"\n == TEST '%%u' > 0 ==\n"NC);
+	ret = ft_printf("FT: %u", 1345334511);
+	printf("\nRet: %d\n", ret);
+	ret = printf("OR: %u", 1345334511);
+	printf("\nRet: %d\n", ret);
+
+	ft_printf(CYAN"\n == TEST '%%i' < 0 ==\n"NC);
+	ret = ft_printf("FT: %i", 0);
+	printf("\nRet: %d\n", ret);
+	ret = printf("OR: %i", 0);
 	printf("\nRet: %d\n", ret);
 
 	return (0);

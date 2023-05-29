@@ -19,13 +19,14 @@
 # include "ft_libft/libft.h"
 
 // Main function
-int ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
 
 // Linked list management
-int ft_putchar(va_list params, int *i);
-int ft_putstr(va_list params, int *i);
-int ft_putint(va_list params, int *i);
-int ft_putptr(va_list params, int *i, char mode);
-int ft_puthex(va_list params, int *i, char mode);
+int	ft_putchar(va_list params, int *i);
+int	ft_putstr(va_list params, int *i);
+int	ft_putint(va_list params, int *i);
+int	ft_putunsint(va_list params, int *i);
+int	ft_putptr(va_list params, int *i, char mode);
+int	ft_puthex(va_list params, int *i, char mode);
 
 #endif
