@@ -6,7 +6,7 @@
 /*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:11:54 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/29 19:50:21 by mvisca-g         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:39:56 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	ft_printf(const char *format, ...)
 	while (control != -1 && format[index])
 	{
 		control = ft_process(params, format, &index);
-		index++;
 		printed += control;
+		index++;
 	}
 	va_end(params);
 	if (control == -1)
