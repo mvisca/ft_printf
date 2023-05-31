@@ -14,13 +14,23 @@ OBJS_DIR = bin/
 SRCS =	$(wildcard $(SRCS_DIR)*.c)
 
 # Objects
-OBJS = $(SRCS:.c=.o)
+OBJS = $(patsubst $(SRCS:.c))
 
 # Target file
 NAME = libftprintf.a
 
 # Includes
 INC = -I. -I./ft_libft
+
+#---------------------------------------#
+#	FORMAT								#
+#---------------------------------------#
+
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+NC = \033[0m
 
 # Create directory if it doesn't exist
 $(shell mkdir -p $(OBJS_DIR))
