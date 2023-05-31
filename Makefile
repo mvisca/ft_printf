@@ -6,7 +6,7 @@
 #    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:14:27 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 19:13:09 by mvisca           ###   ########.fr        #
+#    Updated: 2023/05/31 19:29:36 by mvisca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ NAME 		:= libftprintf.a
 #---------------------------------------#
 
 LIBS		:= ft
-LIBS_TARGET	:= ft_libft/libft.a
+LIBS_TARGET	:= libft/libft.a
 
 INCS		:= include				\
-	ft_libft/include
+	libft/include
 
 SRCS_DIR	:= src
 SRCS		:=						\
