@@ -6,7 +6,7 @@
 #    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:14:27 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 18:15:39 by mvisca           ###   ########.fr        #
+#    Updated: 2023/05/31 19:05:54 by mvisca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,8 +68,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS_TARGET)
 	@cp $(LIBS_TARGET) $(NAME)
-	@$(AR) $@ $<
-	@echo "$(YELLOW)Building $(RED)$(NAME) $(YELLOW)ready!$(NC)"
+	@$(AR) $@ $^
+	@echo "$(YELLOW)Packing $(RED)$(NAME) $(YELLOW)ready!$(NC)"
 
 $(LIBS_TARGET):
 	@echo "$(BLUE)Call to create $(YELLOW)$@$(NC)"
@@ -78,7 +78,7 @@ $(LIBS_TARGET):
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-	@echo "$(GREEN)Library... $(NC)$($< $(RED) -> $(NC)$@)"
+	@echo "$(GREEN)Building $(NC)$(notdir $<) $(RED)-> $(NC)$(notdir $@)"
 -include $(DEPS)
 
 clean:
