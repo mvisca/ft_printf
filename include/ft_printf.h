@@ -6,7 +6,7 @@
 /*   By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:50:26 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/28 15:43:07 by mvisca           ###   ########.fr       */
+/*   Updated: 2023/05/31 18:30:20 by mvisca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "ft_libft/libft.h"
+# include <libft.h>
 
 // Main function
 int	ft_printf(const char *format, ...);

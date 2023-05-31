@@ -1,4 +1,5 @@
-#include "ft_printf.h"
+#include <ft_printf.h>
+#include <libft.h>
 
 // Definición de constantes de color
 #define NC		"\x1B[0m"
