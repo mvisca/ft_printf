@@ -6,7 +6,7 @@
 #    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:14:27 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 19:05:54 by mvisca           ###   ########.fr        #
+#    Updated: 2023/05/31 19:10:19 by mvisca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ NC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBS_TARGET)
+$(NAME): $(OBJS)
 	@cp $(LIBS_TARGET) $(NAME)
 	@$(AR) $@ $^
 	@echo "$(YELLOW)Packing $(RED)$(NAME) $(YELLOW)ready!$(NC)"
