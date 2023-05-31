@@ -6,7 +6,7 @@
 #    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 16:04:59 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 19:33:12 by mvisca           ###   ########.fr        #
+#    Updated: 2023/05/31 20:22:24 by mvisca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(BLUE)Linking...$(NC)\n$(notdir $^)"
+	@echo "$(BLUE)Linking...\n$(NC)$(notdir $^)"
 	@$(AR) $(ARFLAGS) $@ $^
 	@echo "$(YELLOW)Library $(RED)$(NAME) $(YELLOW)ready!$(NC)"
 
@@ -113,18 +113,21 @@ $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 -include $(DEPS)
 
 clean:
-	@$(RM)f $(BUILD_DIR) 
-	@echo "$(RED)Deleting... $(NC)$(notdir $(OBJS)) $(RED)>> 🗑️$(NC)"
+	@echo "$(RED)Deleting $(NC)libft *.o *.d$(RED)>> 🗑️$(NC)"
+	@$(RM) $(BUILD_DIR)
 
 fclean: clean
-	@echo "$(RED)Deleting... $(NC)$(NAME) $(RED)>> 🗑️$(NC)"
+	@echo "$(RED)Deleting $(NC)$(NAME) $(RED)>> 🗑️$(NC)"
 	@$(RM) $(NAME)
 
+fcleancall:
+	@echo "\r$(RED)Deleting $(NC)$(NAME) $(RED)>> 🗑️$(NC)"
+	@$(RM) $(NAME)
+	
 re: fclean all
-	@echo "Reseting"
 
 #---------------------------------------#
 #	SPECIAL RULES						#
 #---------------------------------------#
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean fcleancall re

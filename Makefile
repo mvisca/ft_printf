@@ -6,7 +6,7 @@
 #    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:14:27 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 19:29:36 by mvisca           ###   ########.fr        #
+#    Updated: 2023/05/31 20:21:13 by mvisca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,33 +70,34 @@ $(NAME): $(OBJS) $(LIBS_TARGET)
 	@cp $(LIBS_TARGET) $(NAME)
 	@$(AR) $@ $(OBJS)
 	@echo "$(YELLOW)Packing $(RED)$(NAME) $(YELLOW)ready!$(NC)"
+-include $(DEPS)
 
 $(LIBS_TARGET):
-	@echo "$(BLUE)Call to create $(YELLOW)$@$(NC)"
+	@echo "$(BLUE)Call to create $(YELLOW)$(notdir $@)$(NC)"
 	@$(MAKE) -C $(@D)
+-include $(DEPS)
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	@echo "$(GREEN)Building $(NC)$(notdir $<) $(RED)-> $(NC)$(notdir $@)"
--include $(DEPS)
 
 clean:
+	@echo "$(RED)Deleting $(NC)$ printf *.o *.d $(RED) >> 🗑️$(NC)"
 	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f clean; done
-	@$(RM) $(OBJS) $(DEPS) $(BUILD_DIR)
-	@echo "$(BLUE)Deleting... $(NC)$(notdir $(OBJS)) $(YELLOW)$(BUILD_DIR) $(RED) >> 🗑️$(NC)"
+	@$(RM) $(BUILD_DIR)
 
 fclean: clean
+	@echo "$(RED)Deleting $(NC)$(NAME) $(RED) >> 🗑️$(NC)"
+	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f fcleancall; done
 	@$(RM) $(NAME)
-	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f fclean; done
-	@echo "$(GREEN)Deleting... $(NC)$(NAME) $(RED) >> 🗑️$(NC)"
 
 re: 
-	$(MAKE) fclean 
-	$(MAKE) all
+	@$(MAKE) fclean 
+	@$(MAKE) all
 
 #---------------------------------------#
 #	SPEC								#
 #---------------------------------------#
 
-.PHONY: view clean fclean re
+.PHONY: clean fclean re all
