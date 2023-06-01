@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+         #
+#    By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:14:27 by mvisca            #+#    #+#              #
-#    Updated: 2023/05/31 20:21:13 by mvisca           ###   ########.fr        #
+#    Updated: 2023/06/01 15:16:59 by mvisca-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,16 @@ NAME 		:= libftprintf.a
 #	INGREDIENTS							#
 #---------------------------------------#
 
+# Dirs
 LIBS		:= ft
 LIBS_TARGET	:= libft/libft.a
-
+LIBS_DIR	:= $(dir $(LIBS_TARGET))
+BUILD_DIR	:= .build
+SRCS_DIR	:= src
 INCS		:= include				\
 	libft/include
 
-SRCS_DIR	:= src
+# Source
 SRCS		:=						\
 	ft_printf.c						\
 	ft_putbasedec.c					\
@@ -31,24 +34,43 @@ SRCS		:=						\
 	ft_putstr.c
 SRCS		:= $(SRCS:%=$(SRCS_DIR)/%)
 
-LIBS_DIR	:= $(dir $(LIBS_TARGET))
-BUILD_DIR	:= .build
+# Objects
 OBJS		:= $(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
+OBJS_LIB	:= $(dir $(LIBS_TARGET)/$(SRCS_DIR))
+
+# Dependencies
 DEPS		:= $(OBJS:.o=.d)
 
 #---------------------------------------#
 #	UTENSILS							#
 #---------------------------------------#
 
+# Compiler
 CC 			:= cc
+
+# Compilation flags
 CFLAGS 		:= -Wall -Wextra -Werror
+
+# PreProcessor flags
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
+
+# Libraries path flag 
 LDFLAGS		:= $(addprefix -L,$(dir $(LIBS_TARGET)))
+
+# Libraries name flag
 LDLIBS		:= $(addprefix -l,$(LIBS))
+
+# Archiver 
 AR			:= ar -r -c -s
+
+# Remover
 RM			:= rm -f -r
-MAKEFLAGS	+= --no-print-directory
+
+# Directories builder
 DIR_DUP		= mkdir -p $(@D)
+
+# Defaulte behaviours update
+MAKEFLAGS	+= --no-print-directory --silent
 
 #---------------------------------------#
 #	FORMAT								#
@@ -64,7 +86,7 @@ NC = \033[0m
 #	RECIPES								#
 #---------------------------------------#
 
-all: $(NAME)
+all: $(NAME) callforlib
 
 $(NAME): $(OBJS) $(LIBS_TARGET)
 	@cp $(LIBS_TARGET) $(NAME)
@@ -96,8 +118,13 @@ re:
 	@$(MAKE) fclean 
 	@$(MAKE) all
 
+callforlib:
+	@$(MAKE) -C $(LIBS_DIR)
+	@$(MAKE) -C . $(NAME)
+
 #---------------------------------------#
 #	SPEC								#
 #---------------------------------------#
 
 .PHONY: clean fclean re all
+.SILENT:

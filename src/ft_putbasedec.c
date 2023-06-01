@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbasedec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvisca <mvisca@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvisca-g <mvisca-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 19:15:28 by mvisca-g          #+#    #+#             */
-/*   Updated: 2023/05/31 19:01:08 by mvisca           ###   ########.fr       */
+/*   Updated: 2023/06/01 14:21:25 by mvisca-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_utoa(unsigned int n)
 			ncpy /= 10;
 			len++;
 		}
-		res = malloc ((len) * sizeof(char));
+		res = ft_calloc (len + 1, sizeof(char));
 		if (!res)
 			return (NULL);
 		while (len--)
